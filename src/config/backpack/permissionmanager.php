@@ -50,6 +50,8 @@ return [
     | Validation rules for requests
     |--------------------------------------------------------------------------
     |
+    | "%id%" token is used to exclude current record id from unique rule.
+    |
     */
 
     'validation' => [
