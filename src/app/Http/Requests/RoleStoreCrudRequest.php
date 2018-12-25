@@ -24,8 +24,6 @@ class RoleStoreCrudRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = config('backpack.permissionmanager.validation.role.store');
-
-        return $rules;
+        return config('backpack.permissionmanager.validation.role.store');
     }
 }

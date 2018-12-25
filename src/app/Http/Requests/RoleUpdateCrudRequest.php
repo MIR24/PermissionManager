@@ -24,8 +24,6 @@ class RoleUpdateCrudRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = config('backpack.permissionmanager.validation.role.update');
-
-        return $rules;
+        return config('backpack.permissionmanager.validation.role.update');
     }
 }
