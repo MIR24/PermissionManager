@@ -4,7 +4,7 @@ namespace Backpack\PermissionManager\app\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PermissionCrudRequest extends FormRequest
+class PermissionUpdateCrudRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,9 +24,9 @@ class PermissionCrudRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required',
-            ];
+        $rules = config('backpack.permissionmanager.validation.permission.update');
+
+        $rules['name'] = str_replace('%id%', $this->input('id'), $rules['name']);
 
         return $rules;
     }

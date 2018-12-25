@@ -24,6 +24,10 @@ class RoleUpdateCrudRequest extends FormRequest
      */
     public function rules()
     {
-        return config('backpack.permissionmanager.validation.role.update');
+        $rules = config('backpack.permissionmanager.validation.role.update');
+
+        $rules['name'] = str_replace('%id%', $this->input('id'), $rules['name']);
+
+        return $rules;
     }
 }

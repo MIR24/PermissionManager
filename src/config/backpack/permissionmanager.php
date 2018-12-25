@@ -53,12 +53,21 @@ return [
     */
 
     'validation' => [
+        'permisssion' => [
+            'store' => [
+                'name' => 'required|string|max:255|unique:permissions',
+            ],
+            'update' => [
+                'name' => 'required|string|max:255|unique:permissions,name,%id%',
+            ],
+        ],
+
         'role' => [
             'store' => [
                 'name' => 'required|string|max:255|unique:roles',
             ],
             'update' => [
-                'name' => 'required|string|max:255',
+                'name' => 'required|string|max:255|unique:roles,name,%id%',
             ],
         ],
 
@@ -70,7 +79,7 @@ return [
             ],
             'update' => [
                 'name' => 'required|string|max:255',
-                'email' => 'required|string|email|max:255|unique:users',
+                'email' => 'required|string|email|max:255|unique:users,email,%id%',
                 'password' => 'string|min:6|confirmed',
             ],
         ],
